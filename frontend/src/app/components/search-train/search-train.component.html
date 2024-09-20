@@ -1,0 +1,55 @@
+<div class="container my-3 ">
+  <div class="card my-3">
+    <form [formGroup]="trainSearchForm" class="mt-3"  (ngSubmit)="findTrain()" >
+      <div class="container-fluid my-container" >
+        <div>
+          <mat-form-field class="mx-3" appearance="outline">
+            <mat-label>From</mat-label>
+            <input matInput formControlName="fromStation" placeholder="From Station">
+            <mat-icon class="location-icon-from" aria-hidden="false" aria-label="home icon" matSuffix fontIcon="location_on"></mat-icon>
+          </mat-form-field>
+    
+          <mat-icon class="primary-color" (click)="swapStation()" aria-hidden="false" aria-label="home icon" fontIcon="swap_horiz"></mat-icon>
+          <!-- <mat-form-field class="mx-3" appearance="outline" >
+            <mat-label>To</mat-label>
+            <mat-select formControlName="toStation" >
+              <mat-option value="one">First option</mat-option>
+              <mat-option value="two">Second option</mat-option>
+            </mat-select>
+          </mat-form-field> -->
+    
+          <mat-form-field class="mx-3" appearance="outline">
+            <mat-label>To</mat-label>
+            <input #input
+                   type="text"
+                   placeholder="Pick one"
+                   matInput
+                   formControlName="toStation"
+                   [matAutocomplete]="auto"
+                   (input)="filter()"
+                   (focus)="filter()"
+                   
+                   >
+            <mat-icon class="location-icon-to" aria-hidden="false" aria-label="home icon" matSuffix fontIcon="location_on"></mat-icon>
+            <mat-autocomplete requireSelection #auto="matAutocomplete">
+              @for (option of filteredOptions; track option) {
+                <mat-option [value]="option">{{option}}</mat-option>
+              }
+            </mat-autocomplete>
+          </mat-form-field>
+    
+          <!-- <mat-form-field class="mx-3" appearance="outline">
+            <mat-label>To</mat-label>
+            <input matInput formControlName="toStation" placeholder="To Station">
+          </mat-form-field> -->
+        </div>
+        <div >
+          <button class="btn bg-primary-color" type="submit" [disabled]="trainSearchForm.invalid" >Find Trains</button>
+        </div>
+      </div>
+  
+      
+    </form>
+    
+  </div>
+</div>
