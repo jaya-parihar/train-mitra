@@ -1,0 +1,65 @@
+<div class="my-3" >
+    <button mat-stroked-button class="primary-color" type="submit" [routerLink]="['/search-train']" [queryParams]="{src: fromStation, dstn: toStation}" >Modify Search</button>
+    
+    <button mat-stroked-button  class="primary-color" type="submit" >All Dates</button>
+    <!-- [matMenuTriggerFor]="menu" -->
+    <!-- <mat-menu #menu="matMenu">
+        @for (date of dates; track date) {
+            <button mat-menu-item>{{date}}</button>
+        }
+    </mat-menu> -->
+    <button mat-stroked-button class="primary-color" type="submit" >Sort By</button>
+    <div class="mt-3" >
+        <div class="journey-container">
+            <div class="station source">{{fromStation}}</div>
+            <div class="track">
+              <div ><img class="train" src="assets/sm-train.svg" height="50px" width="50px" alt=""></div>
+              
+            </div>
+            <div class="station destination">{{toStation}}</div>
+        </div>
+
+    </div>
+    <div class="container" >
+        <div class="row">
+        @for (train of trains; track train) {
+            <div class="col-md-6">
+                <div class="card my-3">
+                    <div class="card-body">
+                        <div class="card-title d-flex justify-content-center flex-column align-items-center">
+                            <div class="title secondary-color">{{train.train_name}}</div>
+                            <div class="title secondary-color">Train No: {{train.train_number}}</div>
+                        </div>
+                        <hr>
+                        <div class="card-text">
+                            <div class="d-flex justify-content-between">
+                                <div class="d-flex align-items-center" >
+                                    <div class="f-w-500">{{train.train_src}},&nbsp;</div>
+                                    <div class="f-w-500">{{train.from_std}}</div>
+                                </div>
+                                <div class="container">
+                                    <p *ngIf="train.run_days.length === 7" class="status-text">Runs Daily</p>
+                                    <p *ngIf="train.run_days.length !== 7" class="status-text">Runs on {{train.run_days.join(', ')}}</p>
+                                    <div class="line-container">
+                                        <div class="circle start"></div>
+                                        <div class="line"></div>
+                                        <div class="circle end"></div>
+                                    </div>
+                                    <p class="f-w-500">{{train.duration}} h</p>
+                                </div>
+                                <div class="d-flex align-items-center" >
+                                    <div class="f-w-500">{{train.train_dstn}},&nbsp;</div>
+                                    <div class="f-w-500">{{train.to_std}}</div>
+                                </div>  
+                            </div>
+                            <div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        </div>
+    </div>
+</div>

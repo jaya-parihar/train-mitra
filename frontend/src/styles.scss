@@ -3,15 +3,27 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+@import './app/utils/variables.scss';
 .bg-primary-color{
-    background-color: #43b3b3;
-    color: #ffffff;
+    background-color: $primary-color;
+    color: $white-color;
 }
 
 .primary-color{
-    color: #43b3b3;
+    color: $primary-color;
+}
+
+.secondary-color{
+    color: $secondary-color;
 }
 
 .icon-primary{
-    background-color: #43b3b3;
+    background-color: $primary-color;
 }
+
+.f-w-500{
+    font-weight: 500;
+}
+
+
+

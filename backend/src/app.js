@@ -45,7 +45,9 @@ app.get('/getTrainLiveStatus', (req, res) => {
     res.json(response.TRAIN_LIVE_STATUS)
 })
 
-
+app.get('/health', (req, res) => {
+    res.json({ status: 'Server is running' })
+})
 
 app.listen(3000, () => {
     console.log('Server Started');
