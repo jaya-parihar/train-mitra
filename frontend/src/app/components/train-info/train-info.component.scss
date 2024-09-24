@@ -1,0 +1,51 @@
+@import './../../utils/variables.scss';
+
+.train{
+    display: flex;
+    
+}
+
+mat-progress-bar{
+    -webkit-transform-origin: 0 100%;
+      -webkit-transform: rotate(90deg);
+      -moz-transform-origin: 0 100%;
+      -moz-transform: rotate(90deg);
+      -ms-transform-origin: 0 100%;
+      -ms-transform: rotate(90deg);
+      transform-origin: 0 100%;
+      transform: rotate(90deg);   
+  }
+  
+  ::ng-deep mat-progress-bar ::after{
+    content: "";
+    height: 4.5px;
+    width: 4.5px;
+    background-color: rgb(246, 10, 10);
+    border-radius: 50%;
+    
+  }
+
+.danger{
+    color: $danger-color
+}
+
+.success{
+    color: $success-color
+}
+
+.station-info {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  .track {
+    height: 5px;
+    background-color: #333;
+    position: relative;
+    margin: 10px 0;
+  }
+  .train {
+    position: absolute;
+    top: -10px;
+    transition: left 1s linear;
+  }

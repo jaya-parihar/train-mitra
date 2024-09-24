@@ -1,0 +1,83 @@
+.train{
+  display: flex;
+  // justify-content: space-between;
+}
+
+.train-schedule {
+  display: flex;
+  font-family: Arial, sans-serif;
+}
+.timeline {
+  position: relative;
+  width: 50px;
+}
+.line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 4px;
+  background-color: #e6f3ff;
+}
+.station-marker {
+  position: relative;
+  height: 100px;
+}
+.dot {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 12px;
+  height: 12px;
+  background-color: #4a90e2;
+  border-radius: 50%;
+}
+.train-icon {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+}
+.stations {
+  flex-grow: 1;
+}
+.station {
+  display: flex;
+  align-items: center;
+  height: 100px;
+  position: relative;
+}
+.time {
+  width: 80px;
+  text-align: center;
+}
+.left {
+  order: 1;
+}
+.station-info {
+  order: 2;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+p{
+  margin-bottom: 0;
+}
+.right {
+  order: 3;
+}
+.scheduled-time {
+  position: absolute;
+  color: #ff0000;
+}
+.scheduled-time.left {
+  left: 0;
+  top: 70px;
+}
+.scheduled-time.right {
+  right: 0;
+  top: 70px;
+}

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SearchTrainComponent } from './search-train.component';
+import { TrainInfoComponent } from './train-info.component';
 
-describe('SearchTrainComponent', () => {
-  let component: SearchTrainComponent;
-  let fixture: ComponentFixture<SearchTrainComponent>;
+describe('TrainInfoComponent', () => {
+  let component: TrainInfoComponent;
+  let fixture: ComponentFixture<TrainInfoComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [SearchTrainComponent]
+      declarations: [TrainInfoComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(SearchTrainComponent);
+    fixture = TestBed.createComponent(TrainInfoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -20,5 +20,4 @@ describe('SearchTrainComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-  
 });

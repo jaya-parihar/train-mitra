@@ -12,6 +12,10 @@ import { AngularMaterialModule } from './angular-material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ListTrainsComponent } from './components/list-trains/list-trains.component';
+import { TruncatePipe } from './pipes/truncate.pipe';
+import { TrainStatusComponent } from './components/train-status/train-status.component';
+import { TrainInfoComponent } from './components/train-info/train-info.component';
+import { MovingTrainSvgComponent } from './components/moving-train-svg/moving-train-svg.component';
 
   
 @NgModule({
@@ -22,6 +26,10 @@ import { ListTrainsComponent } from './components/list-trains/list-trains.compon
     HeaderComponent,
     FooterComponent,
     ListTrainsComponent,
+    TruncatePipe,
+    TrainStatusComponent,
+    TrainInfoComponent,
+    MovingTrainSvgComponent,
   ],
   imports: [
     BrowserModule,

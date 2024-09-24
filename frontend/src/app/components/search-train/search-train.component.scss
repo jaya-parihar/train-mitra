@@ -1,7 +1,9 @@
 @import './../../utils/variables.scss';
 
-.card:hover{
-  box-shadow: 5px 5px 5px 5px #e6e6e6;
+.card{
+  
+  transition: 0.5s;
+  
 }
 
 .location-icon-from{

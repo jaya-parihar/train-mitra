@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SearchTrainComponent } from './search-train.component';
+import { MovingTrainSvgComponent } from './moving-train-svg.component';
 
-describe('SearchTrainComponent', () => {
-  let component: SearchTrainComponent;
-  let fixture: ComponentFixture<SearchTrainComponent>;
+describe('MovingTrainSvgComponent', () => {
+  let component: MovingTrainSvgComponent;
+  let fixture: ComponentFixture<MovingTrainSvgComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [SearchTrainComponent]
+      declarations: [MovingTrainSvgComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(SearchTrainComponent);
+    fixture = TestBed.createComponent(MovingTrainSvgComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -20,5 +20,4 @@ describe('SearchTrainComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-  
 });

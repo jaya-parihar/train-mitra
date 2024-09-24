@@ -1,0 +1,35 @@
+<!-- <div class="train" >
+    <div style="margin-right: 5rem;" >
+      <div class="" >{{train.sta}}</div>
+      <div [ngClass]="{'danger': train.sta < train.std, 'success': train.sta >= train.std}" >{{train.std}}</div>
+    </div>
+    <div style="height: 80px; width: 80px;" >
+      <mat-progress-bar mode="determinate" [value]="status === 'past' ? 100 : 0" ></mat-progress-bar>
+    </div>
+    <div class="train-info" >
+        <div>
+            <p>{{train.station_name}}</p>
+        </div>
+        <div >
+          <div>{{train.eta}}</div>
+          <div [ngClass]="{'danger': train.eta < train.etd, 'success': train.eta >= train.etd}" >{{train.etd}}</div>
+        </div>
+    </div>
+  </div> -->
+
+
+  <div class="station-info">
+    <h3>{{ train.station_name }}</h3>
+    <p>Arrival: {{ train.sta }}</p>
+    <p>Departure: {{ train.std }}</p>
+  </div>
+  <div class="track" *ngIf="index < train.length - 1">
+    <div class="train" [style.left]="getTrainPosition(index) + '%'">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50" width="50" height="25">
+        <rect x="10" y="20" width="80" height="25" fill="#4a4a4a" />
+        <rect x="85" y="10" width="10" height="35" fill="#4a4a4a" />
+        <circle cx="25" cy="45" r="5" fill="#000" />
+        <circle cx="75" cy="45" r="5" fill="#000" />
+      </svg>
+    </div>
+  </div>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonService } from '../../services/common.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 export interface Train {
   train_number: string;
@@ -33,24 +33,29 @@ export interface Train {
   styleUrl: './list-trains.component.scss'
 })
 export class ListTrainsComponent implements OnInit {
-  constructor(private commonService:CommonService, private route: ActivatedRoute) {
+  constructor(private commonService:CommonService, 
+    private router: Router) {
+    this.state = this.router.getCurrentNavigation()?.extras.state;
   }
 
   trains: Train[] = [];
   dates: string[] = ['Today', 'Tomorrow', 'Choose from Calendar'];
   selectedDate: string = 'Today';
-
+  state: any;
   fromStation: string = '';
   toStation: string = '';
 
   ngOnInit(): void {
-    this.route.queryParams.subscribe(
-      (params: any) => {
-        this.trains = JSON.parse(params['trains']);
-        this.fromStation = params['fromStation'];
-        this.toStation = params['toStation'];
-      }
-    )
+    if(this.state){
+      this.trains = JSON.parse(this.state['trains']);
+      this.fromStation = this.state['fromStation'];
+      this.toStation = this.state['toStation'];
+    }
   }
+
+  getTrainDetails(trainNumber: string, fromDay: number) {
+    this.router.navigate(['/train-live-status'], {state: {trainNumber, fromDay}});
+  }
+
 
 }

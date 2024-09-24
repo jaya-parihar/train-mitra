@@ -1,7 +1,7 @@
 <div class="container my-3 ">
   <div class="row">
     <div class="container-fluid col-md-4">
-      <div class="card my-3 py-3">    
+      <div class="card my-3 py-3 shadow-lg p-3 mb-5 bg-white rounded">    
         <div class="card-body">
           <div class="card-title">
             <h6 class="d-flex align-items-baseline" >Welcome to <h5 class="primary-color" >Train Mitra</h5></h6>
@@ -54,7 +54,7 @@
                 </mat-form-field>
               </div>
               <div class="col-md-12 d-flex justify-content-center">
-                <button mat-stroked-button class="primary-color" type="submit" >Find Trains</button>
+                <button mat-stroked-button class="primary-color" [disabled]="trainSearchForm.invalid" type="submit" >Find Trains</button>
               </div>
             </div>
           </form>

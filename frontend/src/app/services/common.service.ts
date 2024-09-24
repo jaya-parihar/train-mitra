@@ -11,10 +11,15 @@ export class CommonService {
   baseUrl = "http://localhost:3000";
 
   searchStation(station:string){
-    return this.http.get(`${this.baseUrl}/searchStation?station=${station}`);
+    return this.http.post(`${this.baseUrl}/searchStation`, {station});
   }
 
   searchTrainBetweenStation(fromStation:string, toStation:string) {
-    return this.http.get(`${this.baseUrl}/getTrainBetStations?fromStation=${fromStation}&toStation=${toStation}`)
+    return this.http.post(`${this.baseUrl}/getTrainBetStations`, {fromStation, toStation})
   }
+
+  getTrainLiveStatus(trainNumber:string, fromDay:number){
+    return this.http.post(`${this.baseUrl}/getTrainLiveStatus`, {trainNumber, fromDay})
+  }
+
 }
