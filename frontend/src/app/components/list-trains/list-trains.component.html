@@ -14,7 +14,7 @@
         <div class="row">
         @for (train of trains; track train) {
             <div class="col-md-6">
-                <div class="card my-3">
+                <div class="my-card card my-3">
                     <div class="card-body" (click)="getTrainDetails(train.train_number, train.from_day)" >
                         <div class="card-title d-flex justify-content-center flex-column align-items-center">
                             <div class="title secondary-color" [matTooltip]="train.train_name" >{{train.train_name | truncate}}</div>
@@ -42,9 +42,22 @@
                                     <div class="f-w-500">{{train.to_std}}</div>
                                 </div>  
                             </div>
-                            <div>
-                                
+                           <div class="row">
+                            <div *ngFor="let c of train.class_type" class="classes col-md-3" >
+                                <div class="">
+                                    <div class="class">
+                                        <p>{{c}}</p>
+                                    </div>
+                                    
+                                    <!-- <div *ngIf="train?.seats" >
+                                        <p>{{train?.seats?.current_status}}</p>
+                                    </div> -->
+                                    <div  >
+                                        <button  class="btn primary-color" (click)="checkSeatAvailability(train, c, $event)" ><mat-icon>refresh</mat-icon> Refresh</button>
+                                    </div>
+                                </div>
                             </div>
+                           </div>
                         </div>
                     </div>
                 </div>

@@ -4,7 +4,7 @@
     font-weight: 600;
 }
 
-.card{
+.my-card{
     border: 1px solid $secondary-color;
     cursor: pointer;
     box-shadow: 0 4px 10px rgba($theme-color-4, 0.5);
@@ -72,4 +72,12 @@
 
 .time-icon{
     font-size: 20px;
+}
+
+.classes{
+    border: 1px dashed grey;
+    border-radius: 10px;
+}
+.class{
+    border-bottom: 1px solid grey;
 }

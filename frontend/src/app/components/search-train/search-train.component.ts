@@ -50,16 +50,7 @@ export class SearchTrainComponent implements OnInit {
   }
 
   findTrain(){
-    this.commonService.searchTrainBetweenStation(this.trainSearchForm.value.fromStation, this.trainSearchForm.value.toStation).subscribe(
-      (res: any) => {
-        console.log(res.data);
-        console.log(this.trainSearchForm.value.fromStation);
-        console.log(this.trainSearchForm.value.toStation);
-        this.router.navigate(['/trains'], {state: { trains: JSON.stringify(res.data), fromStation: this.trainSearchForm.value.fromStation, toStation: this.trainSearchForm.value.toStation }});
-      },(err) => {
-        console.log(err);
-      }
-    )
+    this.router.navigate(['/trains'], {state: { fromStation: this.trainSearchForm.value.fromStation, toStation: this.trainSearchForm.value.toStation }});
   }
 
   swapStation(){

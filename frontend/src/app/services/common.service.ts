@@ -22,4 +22,12 @@ export class CommonService {
     return this.http.post(`${this.baseUrl}/getTrainLiveStatus`, {trainNumber, fromDay})
   }
 
+  getTrainClasses(trainNumber:string){
+    return this.http.post(`${this.baseUrl}/getTrainClasses`, {trainNumber})
+  }
+
+  getSeatAvailability(trainDetails:any){
+    return this.http.post(`${this.baseUrl}/checkSeatAvailability`, {trainDetails})
+  }
+
 }
