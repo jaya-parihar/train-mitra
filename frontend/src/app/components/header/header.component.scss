@@ -1,0 +1,22 @@
+@import './../../utils/variables.scss';
+
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+.header{
+  position: sticky;
+  top: 0px;
+  z-index: 99;
+  background-color: $white-color;
+}
+
+::ng-deep mat-toolbar{
+    // position: sticky;
+    // top: 5px;
+    // z-index: 99;
+    background-color: $theme-color-4 !important ;
+    color: $theme-color-1 !important;
+    border-radius: 6px !important;
+    // margin-top: 5px !important;
+}

@@ -7,7 +7,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
-import { MatCommonModule } from '@angular/material/core';
+import { MatCommonModule, MatNativeDateModule } from '@angular/material/core';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatDividerModule } from '@angular/material/divider';
@@ -75,6 +75,7 @@ import { MatTreeModule } from '@angular/material/tree';
         MatTooltipModule,
         MatToolbarModule,
         MatTreeModule,
+        MatNativeDateModule,
         
     ],
     exports: [
@@ -114,6 +115,7 @@ import { MatTreeModule } from '@angular/material/tree';
         MatTooltipModule,
         MatToolbarModule,
         MatTreeModule,
+        MatNativeDateModule
     ]
 })
 

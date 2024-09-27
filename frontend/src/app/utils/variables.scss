@@ -1,7 +1,18 @@
-$primary-color: #43b3b3;
-$secondary-color: #1D3E53;
+$theme-color-1: #1D3E53;
+$theme-color-2: #43b3b3;
+$theme-color-3: #77ABB7;
+$theme-color-4: #add1d9;
+
 $white-color: #ffffff;
-$danger-color: #ff0000;
-$success-color: #247024;
 $grey-color: #808080;
-$theme-color-4: #77ABB7
+$danger-color: #ff0000;
+$danger-color-2: #c50202;
+$success-color: #247024;
+
+.light-blue-theme{
+    $theme-color-1: #1D3E53;
+$theme-color-2: #43b3b3;
+$theme-color-3: #77ABB7;
+$theme-color-4: #add1d9;
+
+}

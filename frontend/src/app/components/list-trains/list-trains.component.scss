@@ -1,19 +1,21 @@
 @import '../../utils/variables.scss';
 
 .title{
-    font-weight: 600;
+    font-weight: 500;
 }
 
 .my-card{
-    border: 1px solid $secondary-color;
+    border: 1px solid $theme-color-1;
     cursor: pointer;
-    box-shadow: 0 4px 10px rgba($theme-color-4, 0.5);
+    box-shadow: 0 4px 10px rgba($theme-color-3, 0.5);
     border-radius: 10px;
-    border-bottom: 5px solid $secondary-color;
+    border-bottom: 5px solid $theme-color-1;
+    margin-bottom: 20px;
 }
 
 .container {
     text-align: center;
+    margin-top: 20px;
 }
 
 .status-text {
@@ -36,12 +38,12 @@
 
 .start {
     background-color: yellow;
-    border: 2px solid $secondary-color;
+    border: 2px solid $theme-color-1;
 }
 
 .end {
     background-color: lightblue;
-    border: 2px solid $secondary-color;
+    border: 2px solid $theme-color-1;
 }
 
 .line {
@@ -52,13 +54,13 @@
 }
 
 ::ng-deep .mat-stroked-button{
-    border: 1px solid $secondary-color;
-    color: $secondary-color;
+    border: 1px solid $theme-color-1;
+    color: $theme-color-1;
   }
   
 ::ng-deep .mat-mdc-outlined-button:not(:disabled){
-    border: 1px solid $secondary-color;
-    color: $primary-color !important;
+    border: 1px solid $theme-color-1;
+    color: $theme-color-2 !important;
 }
 
 ::ng-deep .mdc-text-field--filled:not(.mdc-text-field--disabled){
@@ -75,9 +77,23 @@
 }
 
 .classes{
-    border: 1px dashed grey;
-    border-radius: 10px;
+    // border: 1px dashed grey;
+    // border-radius: 10px;
+    border-right: 1px solid grey;
 }
-.class{
-    border-bottom: 1px solid grey;
+
+.classes:last-child{
+    border: none;
+}
+
+.spinner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.train-filter{
+    // position: sticky;
+    // top: 5rem;
+    // z-index: 99;
 }

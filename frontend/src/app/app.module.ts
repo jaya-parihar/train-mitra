@@ -16,6 +16,8 @@ import { TruncatePipe } from './pipes/truncate.pipe';
 import { TrainStatusComponent } from './components/train-status/train-status.component';
 import { TrainInfoComponent } from './components/train-info/train-info.component';
 import { MovingTrainSvgComponent } from './components/moving-train-svg/moving-train-svg.component';
+import { ClassesComponent } from './components/classes/classes.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
   
 @NgModule({
@@ -30,6 +32,7 @@ import { MovingTrainSvgComponent } from './components/moving-train-svg/moving-tr
     TrainStatusComponent,
     TrainInfoComponent,
     MovingTrainSvgComponent,
+    ClassesComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,7 +46,8 @@ import { MovingTrainSvgComponent } from './components/moving-train-svg/moving-tr
     // StoreModule.forRoot({ counter: counterReducer }),
   ],
   providers: [
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    // MatDatepickerModule
   ],
   bootstrap: [AppComponent]
 })

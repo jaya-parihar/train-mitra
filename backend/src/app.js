@@ -14,7 +14,7 @@ app.get('/getPNRStatus', (req, res) => {
     res.json(response.PNR_RESPONSE)
 })
 
-app.get('/getFare', (req, res) => {
+app.post('/getFare', (req, res) => {
     res.json(response.FARE)
 })
 

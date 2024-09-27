@@ -5,25 +5,30 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 @import './app/utils/variables.scss';
 .bg-primary-color{
-    background-color: $primary-color;
+    background-color: $theme-color-2;
+    color: $white-color;
+}
+
+.bg-theme1{
+    background-color: $theme-color-1;
     color: $white-color;
 }
 
 .primary-color{
-    color: $primary-color;
+    color: $theme-color-2;
 }
 
 .secondary-color{
-    color: $secondary-color;
+    color: $theme-color-1;
 }
 
 .bg-theme-color-4{
     background-color: $theme-color-4;
-    color: $secondary-color
+    color: $theme-color-1
 }
 
 .icon-primary{
-    background-color: $primary-color;
+    background-color: $theme-color-2;
 }
 
 .f-w-500{

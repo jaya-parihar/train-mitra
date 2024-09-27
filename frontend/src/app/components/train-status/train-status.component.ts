@@ -60,7 +60,7 @@ export class TrainStatusComponent implements OnInit{
         
         this.train['sta'] = this.train.cur_stn_sta;
         this.train['std'] = this.train.cur_stn_std;
-        this.upcomingStations = res.data.upcoming_stations.slice(-2)
+        this.upcomingStations = res.data.upcoming_stations.slice(0,2)
         this.previousStations = res.data.previous_stations.slice(-2)
         // this.currentStationIndex = this.previousStations.length;
       },
@@ -71,20 +71,9 @@ export class TrainStatusComponent implements OnInit{
         console.log('Train live status fetched successfully');
       }
     });
+  }
 
-    // this.commonService.getTrainLiveStatus(this.trainNumber, this.fromDay).subscribe(
-    //   (res: any) => {
-    //     this.train = res.data
-    //     console.log(this.train);
-        
-    //     this.train['sta'] = this.train.cur_stn_sta;
-    //     this.train['std'] = this.train.cur_stn_std;
-    //     this.upcomingStations = res.data.upcoming_stations.slice(-2)
-    //     this.previousStations = res.data.previous_stations.slice(-2)
-    //   },  
-    //   (err) => {
-    //     console.log(err);
-    //   }
-    // )
+  getTrainUpdates(){
+    
   }
 }

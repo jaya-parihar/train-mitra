@@ -1,0 +1,33 @@
+<!-- <div class="">
+    <div class="class">
+        <p>{{trainClass}}</p>
+    </div>
+    <div *ngIf="seats?.current_status" >
+        <p class="seat-details" >{{seats?.current_status}}</p>
+        <span class="price" >
+            <p class="seat-details">{{seats?.total_fare | currency: 'INR'}}</p>
+            <mat-icon class="seat-details info-icon" >info</mat-icon>
+        </span> 
+    </div>
+    <div *ngIf="!seats?.current_status" >
+        <button  class="btn primary-color" (click)="checkSeatAvailability(trainClass, $event)" ><mat-icon>refresh</mat-icon> Refresh</button>
+    </div>
+</div> -->
+
+<div>
+    <div class="" >
+        <span>{{trainClass}}</span>
+       
+    </div>
+    <div *ngIf="seats?.current_status" class="seat-info" >
+        <span class="seat-details" >{{seats.current_status}}</span>
+        <span class="price" >
+            <p class="seat-details">{{seats.total_fare | currency: 'INR'}}</p>
+            <mat-icon class="seat-details info-icon" >info</mat-icon>
+        </span> 
+    
+    </div>
+    <div *ngIf="!seats?.current_status " class="d-flex justify-content-center" >
+        <button  class="btn primary-color d-flex" (click)="getSeatAvailabilityAndFare(trainClass, $event)" ><mat-icon>refresh</mat-icon> Refresh</button>
+    </div>
+</div>

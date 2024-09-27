@@ -1,0 +1,22 @@
+@import './../../utils/variables.scss';
+.class{
+    border-bottom: 1px solid grey;
+}
+.seat-details{
+    font-size: small;
+}
+
+.price{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.info-icon{
+    color: $theme-color-1;
+}
+.seat-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

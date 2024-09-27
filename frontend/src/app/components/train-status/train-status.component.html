@@ -12,32 +12,38 @@
   </div>
 </div> -->
 
-<div class="train-schedule mt-3">
-  <div class="timeline">
-    <div class="line"></div>
-    <ng-container *ngFor="let station of stations; let i = index">
-      <div class="station-marker" [class.current]="i === currentStationIndex">
-        <div class="dot"></div>
-        <ng-container *ngIf="i === currentStationIndex">
-          <div class="train-icon">🚂</div>
-        </ng-container>
-      </div>
-    </ng-container>
-  </div>
-  <div class="stations">
-    <div *ngFor="let station of stations" class="station">
-      <div class="time left">{{ station.arrivalTime }} {{station.scheduledArrival}}</div>
-      <div class="station-info">
-        <p>{{ station.name }}</p>
-        <p>{{ station.distance }} km Platform {{ station.platform }}</p>
-      </div>
-      <div class="time right">{{ station.departureTime }} {{ station.scheduledDeparture }}</div>
-      <!-- <ng-container *ngIf="station.scheduledArrival">
-        <div class="scheduled-time left">{{ station.scheduledArrival }}</div>
-      </ng-container>
-      <ng-container *ngIf="station.scheduledDeparture">
-        <div class="scheduled-time right">{{ station.scheduledDeparture }}</div>
-      </ng-container> -->
+<div class="row d-flex justify-content-center">
+  <div class="col-md-7 train-schedule mt-3">
+    <div class="timeline">
+      <div class="line"></div>
+      <!-- <ng-container  *ngFor="let t of previousStations;let i = index" >
+        <div class="station-marker" [class.current]="i == currentStationIndex">
+          <div class="dot"></div>
+          <ng-container *ngIf="i == currentStationIndex">
+            <div class="train-icon">🚂</div>
+          </ng-container>
+        </div>
+    </ng-container> -->
+  
+      <app-train-info *ngFor="let t of previousStations" [train]="t" [isCurrentStation]="'prev'" [isStation]="true" ></app-train-info>
+      <app-train-info [train]="train" [isCurrentStation]="'curr'" [isStation]="true" ></app-train-info>
+      <app-train-info *ngFor="let t of upcomingStations" [train]="t" [isCurrentStation]="'fut'" [isStation]="true" ></app-train-info>
     </div>
+    <div class="stations">
+      <app-train-info class="my-1" *ngFor="let t of previousStations" [train]="t" [isCurrentStation]="'prev'" [isStation]="false" ></app-train-info>
+      <app-train-info class="my-1" [train]="train" [isCurrentStation]="'curr'" [isStation]="false" ></app-train-info>
+      <app-train-info class="my-1" *ngFor="let t of upcomingStations" [train]="t" [isCurrentStation]="'fut'" [isStation]="false" ></app-train-info>
+      <!-- <div class="station" *ngFor="let train of previousStations" >
+        <div class="time left">{{ train?.sta }} {{train?.eta}}</div>
+        <div class="station-info">
+          <p>{{ train?.station_name }}</p>
+          <p>{{ train?.distance_from_source }} km Platform {{ train?.platform_number }}</p>
+        </div>
+        <div class="time right">{{ train?.std }} {{ train?.etd }}</div>
+      </div> -->
+    </div>
+  </div>
+  <div class="col-md-1 d-flex align-items-end justify-content-center mb-4">
+    <mat-icon class="refresh-icon" (click)="getTrainLiveStatus()" >refresh</mat-icon>
   </div>
 </div>

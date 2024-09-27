@@ -1,51 +1,92 @@
 @import './../../utils/variables.scss';
 
-.train{
-    display: flex;
-    
+.station-marker {
+  position: relative;
+  height: 106px;
+}
+.dot {
+  position: absolute;
+  left: 60%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 12px;
+  height: 12px;
+  background-color: #4a90e2;
+  border-radius: 50%;
+}
+.train-icon {
+  position: absolute;
+  left: 60%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
 }
 
-mat-progress-bar{
-    -webkit-transform-origin: 0 100%;
-      -webkit-transform: rotate(90deg);
-      -moz-transform-origin: 0 100%;
-      -moz-transform: rotate(90deg);
-      -ms-transform-origin: 0 100%;
-      -ms-transform: rotate(90deg);
-      transform-origin: 0 100%;
-      transform: rotate(90deg);   
-  }
-  
-  ::ng-deep mat-progress-bar ::after{
-    content: "";
-    height: 4.5px;
-    width: 4.5px;
-    background-color: rgb(246, 10, 10);
-    border-radius: 50%;
-    
-  }
+.station {
+  display: flex;
+  align-items: center;
+  height: 100px;
+  position: relative;
+  border: 1px solid grey;
+  border-radius: 25px;
+  margin: 6px 0px;
+}
+
+.current-station{
+  // background-color: #ecf2f3;
+  background-color: #d1efc2;
+}
+
+.time {
+  width: 80px;
+  text-align: center;
+}
+.left {
+  order: 1;
+}
+.station-info {
+  order: 2;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  // justify-content: space-around;
+}
+p{
+  margin-bottom: 0;
+}
+.right {
+  order: 3;
+  display: flex;
+  flex-direction: column;
+}
 
 .danger{
-    color: $danger-color
+  color: $danger-color;
 }
 
 .success{
-    color: $success-color
+  color: $success-color;
 }
 
-.station-info {
-    background-color: #f0f0f0;
-    padding: 10px;
-    border-radius: 5px;
-  }
-  .track {
-    height: 5px;
-    background-color: #333;
-    position: relative;
-    margin: 10px 0;
-  }
-  .train {
-    position: absolute;
-    top: -10px;
-    transition: left 1s linear;
-  }
+.station-name{
+  font-weight: 500;
+  color: $theme-color-1;
+  font-size: larger;
+}
+.current-station-name{
+  // color: $danger-color-2;
+  color: #095f00;
+}
+
+.station-details{
+  font-size: small;
+}
+
+.prev-station{
+  opacity: 0.4;
+}
+
+::ng-deep .mat-icon{
+  height: 3rem;
+  width: 3rem;
+}

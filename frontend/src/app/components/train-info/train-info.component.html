@@ -18,7 +18,7 @@
   </div> -->
 
 
-  <div class="station-info">
+  <!-- <div class="station-info">
     <h3>{{ train.station_name }}</h3>
     <p>Arrival: {{ train.sta }}</p>
     <p>Departure: {{ train.std }}</p>
@@ -32,4 +32,31 @@
         <circle cx="75" cy="45" r="5" fill="#000" />
       </svg>
     </div>
+  </div> -->
+
+<ng-container  *ngIf="isStation" >
+    <div class="station-marker" [class.current]="isCurrentStation == 'curr'">
+      <div class="dot"></div>
+      <ng-container *ngIf="isCurrentStation == 'curr'">
+        <div ><mat-icon class="train-icon">train</mat-icon></div>
+      </ng-container>
+    </div>
+</ng-container>
+
+<ng-container *ngIf="!isStation" >
+  <div class="station" [class.current-station]="isCurrentStation == 'curr'" [class.prev-station]="isCurrentStation == 'prev'" >
+    <div class="time left" >
+      <span>{{ train?.sta }} </span>
+      <span [ngClass]="{'danger': train?.sta < train?.std, 'success': train?.sta >= train?.std}" >{{train?.std}}</span>
+    </div>
+    <div class="station-info">
+      <p *ngIf="isCurrentStation == 'curr'" class="station-name current-station-name" >{{train?.current_station_name}}</p>
+      <p *ngIf="isCurrentStation != 'curr'" class="station-name" >{{ train?.station_name }}</p>
+      <p class="station-details" >{{ train?.distance_from_source }} km Platform {{ train?.platform_number }}</p>
+    </div>
+    <div class="time right">
+      <span>{{ train?.eta }}</span>
+      <span [ngClass]="{'danger': train?.eta < train?.etd, 'success': train?.eta >= train?.etd}" >{{ train?.etd }}</span>
+    </div>
   </div>
+</ng-container>

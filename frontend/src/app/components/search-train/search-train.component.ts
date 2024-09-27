@@ -25,32 +25,53 @@ export class SearchTrainComponent implements OnInit {
   filteredOptions!: Station[];
   options: Station[] = [];
 
+  date = new Date();
+  state: any;
+
   constructor(private commonService:CommonService, 
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
   ) {
     this.filteredOptions = this.options.slice();
+    this.state = this.router.getCurrentNavigation()?.extras.state;
+
+    this.trainSearchForm = new FormGroup({
+      fromStation: new FormControl('', [Validators.required]), 
+      toStation: new FormControl('', [Validators.required]),
+      journyDate: new FormControl('', []),
+    })
+
   }
 
   ngOnInit(): void {
+    console.log(this.trainSearchForm.value.journyDate);
     
-    this.trainSearchForm = new FormGroup({
-      fromStation: new FormControl('', [Validators.required]), 
-      toStation: new FormControl('', [Validators.required])
-    })
 
-    this.route.queryParams.subscribe(
-      (params: any) => {
-        this.trainSearchForm.patchValue({
-          fromStation: params['src'],
-          toStation: params['dstn']
-        })
-      }
-    ) 
+    if(this.state){
+      console.log(this.state);
+      
+      this.trainSearchForm.patchValue({
+        fromStation: this.state['src'],
+        toStation: this.state['dstn'],
+        journyDate: this.state['date']})
+    }
+        
+        
+    console.log(this.trainSearchForm.value.journyDate);
+    
+    this.trainSearchForm.value.journyDate ? this.setDefaultSearchDate(this.trainSearchForm.value.journyDate): '';
+    console.log(this.trainSearchForm.value.journyDate);
+    
+  }
+
+  setDefaultSearchDate(date = new Date()){
+    this.trainSearchForm.patchValue({
+      journyDate: date,
+    })
   }
 
   findTrain(){
-    this.router.navigate(['/trains'], {state: { fromStation: this.trainSearchForm.value.fromStation, toStation: this.trainSearchForm.value.toStation }});
+    this.router.navigate(['/trains'], {state: { fromStation: this.trainSearchForm.value.fromStation, toStation: this.trainSearchForm.value.toStation, journyDate: this.trainSearchForm.value.journyDate }});
   }
 
   swapStation(){

@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Fare } from '../models/train';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -14,8 +16,8 @@ export class CommonService {
     return this.http.post(`${this.baseUrl}/searchStation`, {station});
   }
 
-  searchTrainBetweenStation(fromStation:string, toStation:string) {
-    return this.http.post(`${this.baseUrl}/getTrainBetStations`, {fromStation, toStation})
+  searchTrainBetweenStation(fromStation:string, toStation:string, journyDate: Date) {
+    return this.http.post(`${this.baseUrl}/getTrainBetStations`, {fromStation, toStation, journyDate})
   }
 
   getTrainLiveStatus(trainNumber:string, fromDay:number){
@@ -28,6 +30,10 @@ export class CommonService {
 
   getSeatAvailability(trainDetails:any){
     return this.http.post(`${this.baseUrl}/checkSeatAvailability`, {trainDetails})
+  }
+
+  getFare(trainDetails: object): Observable<Fare>{
+    return this.http.post<Fare>(`${this.baseUrl}/getFare`, {trainDetails})
   }
 
 }

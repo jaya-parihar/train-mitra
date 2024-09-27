@@ -1,20 +1,33 @@
 <div class="my-3" >
-    <button mat-stroked-button class="primary-color mx-2" type="submit" [routerLink]="['/search-train']" [queryParams]="{src: fromStation, dstn: toStation}" >Modify Search</button>
+    <div class="train-filter py-0 px-3" >
+        <span>
+            <mat-form-field appearance="outline" >
+                <mat-label>Choose a date</mat-label>
+                <input matInput [matDatepicker]="picker" (dateChange)="onDateChange($event)" [(ngModel)]="journyDate" [min]="minDate" >
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker  ></mat-datepicker>
+              </mat-form-field>    
+        
+        </span>
+        <button mat-stroked-button class="primary-color mx-2" type="submit" (click)="modifySearch()" >Modify Search</button>
+        <button mat-stroked-button [matMenuTriggerFor]="menu" class="primary-color mx-2" type="submit" >Sort By</button>
+        <mat-menu #menu="matMenu" >
+           <button  *ngFor="let o of sortingOptions" mat-menu-item (click)="sortTrains(o)" >
+                <mat-icon>{{o?.icon}}</mat-icon>
+                <span>{{o?.name}}</span>  
+            </button>
+        </mat-menu>
     
-    <button mat-stroked-button  class="primary-color mx-2" type="submit" >All Dates</button>
-    <!-- [matMenuTriggerFor]="menu" -->
-    <!-- <mat-menu #menu="matMenu">
-        @for (date of dates; track date) {
-            <button mat-menu-item>{{date}}</button>
-        }
-    </mat-menu> -->
-    <button mat-stroked-button class="primary-color mx-2" type="submit" >Sort By</button>
+    </div>
    <app-moving-train-svg [fromStation]="fromStation" [toStation]="toStation" ></app-moving-train-svg> 
-    <div class="container" >
+   <div class="spinner" >
+        <mat-spinner *ngIf="loadingTrain" ></mat-spinner>
+   </div>
+    <div *ngIf="!loadingTrain" class="container" >
         <div class="row">
         @for (train of trains; track train) {
             <div class="col-md-6">
-                <div class="my-card card my-3">
+                <div class="my-card card">
                     <div class="card-body" (click)="getTrainDetails(train.train_number, train.from_day)" >
                         <div class="card-title d-flex justify-content-center flex-column align-items-center">
                             <div class="title secondary-color" [matTooltip]="train.train_name" >{{train.train_name | truncate}}</div>
@@ -43,19 +56,8 @@
                                 </div>  
                             </div>
                            <div class="row">
-                            <div *ngFor="let c of train.class_type" class="classes col-md-3" >
-                                <div class="">
-                                    <div class="class">
-                                        <p>{{c}}</p>
-                                    </div>
-                                    
-                                    <!-- <div *ngIf="train?.seats" >
-                                        <p>{{train?.seats?.current_status}}</p>
-                                    </div> -->
-                                    <div  >
-                                        <button  class="btn primary-color" (click)="checkSeatAvailability(train, c, $event)" ><mat-icon>refresh</mat-icon> Refresh</button>
-                                    </div>
-                                </div>
+                            <div *ngFor="let c of train.class_type" class="classes col-md-3 p-0" >
+                                <app-classes  [trainClass]="c" [train]="train" ></app-classes>
                             </div>
                            </div>
                         </div>

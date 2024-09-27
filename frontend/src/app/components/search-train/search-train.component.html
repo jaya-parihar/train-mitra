@@ -10,7 +10,7 @@
             <div class="row" >
               <div class="col-md-12 d-flex justify-content-center" >
 
-                <mat-form-field style="width: 92%;" class="mx-3" appearance="outline">
+                <mat-form-field  class="mx-3" appearance="outline">
                   <mat-label>From</mat-label>
                   <input #input1
                          type="text"
@@ -34,7 +34,7 @@
                 <mat-icon class="secondary-color" (click)="swapStation()" >swap_vert</mat-icon>
               </div>
               <div class="col-md-12 d-flex justify-content-center">
-                <mat-form-field style="width: 92%;" class="mx-3" appearance="outline">
+                <mat-form-field  class="mx-3" appearance="outline">
                   <mat-label>To</mat-label>
                   <input #input2
                          type="text"
@@ -54,8 +54,18 @@
                 </mat-form-field>
               </div>
               <div class="col-md-12 d-flex justify-content-center">
-                <button mat-stroked-button class="primary-color" [disabled]="trainSearchForm.invalid" type="submit" >Find Trains</button>
+                <mat-form-field appearance="outline" >
+                  <mat-label>Choose a date</mat-label>
+                  <input matInput [matDatepicker]="picker" formControlName="journyDate" [min]="date" >
+                  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker  ></mat-datepicker>
+                </mat-form-field>              
               </div>
+              <div class="col-md-12 d-flex justify-content-center d-grid gap-2">
+                <!-- <button mat-stroked-button class="primary-color" [disabled]="trainSearchForm.invalid" type="submit" >Find Trains</button> -->
+                 <button class="btn btn-outline-secondary bg-theme1" [disabled]="trainSearchForm.invalid" >Find Trains</button>
+              </div>
+              
             </div>
           </form>
         </div>
